@@ -18,6 +18,7 @@ public class LocadoraVeiculos {
     public static void main(String[] args) {
         Seguradora seguradora = new Seguradora(0);
         seguradora.setCnpj("15.607.791/0001-90");
+        System.out.println("CNPJ na main"+seguradora.getCnpj());
     }
     
 }
