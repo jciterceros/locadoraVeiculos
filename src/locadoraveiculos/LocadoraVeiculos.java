@@ -4,6 +4,8 @@
  */
 package locadoraveiculos;
 
+import objetos.Seguradora;
+
 /**
  *
  * @author rafael-vieira
@@ -14,7 +16,8 @@ public class LocadoraVeiculos {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Seguradora seguradora = new Seguradora(0);
+        seguradora.setCnpj("15.607.791/0001-90");
     }
     
 }

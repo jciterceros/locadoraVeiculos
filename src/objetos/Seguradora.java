@@ -1,6 +1,7 @@
 package objetos;
 
 public class Seguradora {
+
     private int id;
     private String nome;
     private String cnpj;
@@ -8,6 +9,10 @@ public class Seguradora {
     private Double valor;
     private int id_municipio;
     private int id_estado;
+
+    public Seguradora(int id) {
+        this.id = id;
+    }
 
     /**
      * @return the id
@@ -41,7 +46,23 @@ public class Seguradora {
      * @param cnpj the cnpj to set
      */
     public void setCnpj(String cnpj) {
-        this.cnpj = cnpj;
+        try {
+            // 15.607.791/0001-90
+            cnpj = cnpj.replaceAll("[./-]", "").trim();        
+
+            if (cnpj.length() == 14 && cnpj.matches("[0-9]+")) {
+                this.cnpj = cnpj;
+                System.out.println("CNPJ: " 
+                        + cnpj
+                        +" Tamanho: "
+                        +cnpj.length());
+            } else {
+                System.out.println("CNPJ INVALIDO");
+            }   
+        } catch (Exception ex) {
+            System.err.println(ex.getMessage());
+            throw new RuntimeException("Erro não tratado");
+        }
     }
 
     /**
@@ -99,5 +120,5 @@ public class Seguradora {
     public void setId_estado(int id_estado) {
         this.id_estado = id_estado;
     }
-    
+
 }
